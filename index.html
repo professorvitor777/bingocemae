@@ -1,16 +1,37 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cartela de Bingo 90 Números</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingo Educativo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Cartelas de Bingo 90 Números</h1>
-    <button onclick="gerarCartelas()">Gerar Cartelas</button>
-    <div id="cartelas-container"></div>
+    <h1>Bingo</h1>
+    <p class="sub">CEMAE Aprender</p>
+
+    <div class="botoes">
+      <button id="sortear">🎲 Sortear Número</button>
+      <button id="voltar">↩️ Voltar Último</button>
+      <button id="reiniciar">🔄 Reiniciar</button>
+      <button id="gerar-cartelas">🖨️ Gerar & Imprimir 20 Cartelas</button>
+    </div>
+
+    <div class="ultimo-numero">
+      <h2>🎯 Último número:</h2>
+      <p id="ultimo">--</p>
+    </div>
+
+    <div id="bingo-grid" class="grid"></div>
+
+    <div class="sorteados">
+      <h2>📋 Números Sorteados:</h2>
+      <p id="numeros-sorteados">Nenhum ainda</p>
+    </div>
+
+    <div id="cartelas" class="cartelas-container"></div>
   </div>
 
   <script src="script.js"></script>
