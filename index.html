@@ -1,17 +1,26 @@
-7<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bingo Educativo</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
     <h1>Bingo Educativo</h1>
-    <p>Projeto CEMAE - Aprender brincando</p>
+    <p class="sub">Projeto CEMAE - Aprender brincando</p>
 
-    <button id="sortear">🎲 Sortear Número</button>
+    <div class="botoes">
+      <button id="sortear">🎲 Sortear Número</button>
+      <button id="reiniciar">🔄 Reiniciar</button>
+    </div>
+
+    <div class="ultimo-numero">
+      <h2>🎯 Último número:</h2>
+      <p id="ultimo">--</p>
+    </div>
 
     <div id="bingo-grid" class="grid"></div>
 
@@ -24,4 +33,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
