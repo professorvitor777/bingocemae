@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bingo Educativo</title>
+  <title>Cartela de Bingo 90 Números</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Bingo</h1>
-    <p>CEMAE Aprender</p>
-
-    <button id="sortear">🎲 Sortear Número</button>
-
-    <div id="bingo-grid" class="grid"></div>
-
-    <div class="sorteados">
-      <h2>📋 Números Sorteados:</h2>
-      <p id="numeros-sorteados">Nenhum ainda</p>
-    </div>
+    <h1>Cartelas de Bingo 90 Números</h1>
+    <button onclick="gerarCartelas()">Gerar Cartelas</button>
+    <div id="cartelas-container"></div>
   </div>
 
   <script src="script.js"></script>
