@@ -1,38 +1,80 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bingo Educativo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bingo Surreal — CEMAE</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Bingo</h1>
-    <p class="sub">CEMAE Aprender</p>
+  <div id="app" class="app">
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="logo-ghost" aria-hidden="true">●</div>
+        <h1>Bingo Educativo</h1>
+        <p class="tag">Projeto CEMAE — Aprender brincando</p>
+      </div>
 
-    <div class="botoes">
-      <button id="sortear">🎲 Sortear Número</button>
-      <button id="voltar">↩️ Voltar Último</button>
-      <button id="reiniciar">🔄 Reiniciar</button>
-      <button id="gerar-cartelas">🖨️ Gerar & Imprimir 20 Cartelas</button>
+      <div class="controls" role="toolbar" aria-label="Controles do bingo">
+        <button id="drawBtn" class="btn primary" title="Sortear (Espaço)">🎲 Sortear</button>
+        <button id="undoBtn" class="btn" title="Desfazer (U)">↶ Desfazer</button>
+        <button id="resetBtn" class="btn danger" title="Resetar tudo (R)">⟲ Resetar</button>
+
+        <label class="inline" title="Ativar reprodução automática">
+          Auto
+          <input id="autoToggle" type="checkbox"/>
+        </label>
+
+        <label class="inline" title="Velocidade do auto-sortear">
+          <input id="autoSpeed" type="range" min="300" max="3000" step="100" value="1000"/>
+        </label>
+
+        <button id="fullscreenBtn" class="btn" title="Tela cheia (F)">⤢ Full</button>
+        <button id="soundBtn" class="btn" title="Ativar/Desativar som">🔊</button>
+        <button id="voiceBtn" class="btn" title="Ativar/Desativar voz">🗣️</button>
+
+        <div class="small-actions">
+          <button id="exportBtn" class="btn" title="Exportar estado">⇩ Export</button>
+          <button id="importBtn" class="btn" title="Importar estado">⇧ Import</button>
+          <input id="fileInput" type="file" accept="application/json" style="display:none" />
+        </div>
+      </div>
+    </header>
+
+    <main class="main" role="main">
+      <section class="grid-area" aria-label="Cartela de números">
+        <div id="grid" class="grid" role="grid" aria-label="Números do bingo"></div>
+      </section>
+
+      <aside class="side" aria-label="Painel lateral">
+        <div class="panel">
+          <h2>Últimos sorteados</h2>
+          <div id="lastList" class="lastlist" aria-live="polite"></div>
+          <div class="meta">
+            <div><strong id="calledCount">0</strong> sorteados</div>
+            <div><strong id="remainingCount">90</strong> restantes</div>
+          </div>
+
+          <div class="history">
+            <h3>Histórico completo</h3>
+            <div id="allCalled" class="allcalled"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <div id="bigReveal" class="reveal" aria-hidden="true">
+      <div id="revealInner" class="reveal-inner" role="status" aria-live="assertive"></div>
     </div>
 
-    <div class="ultimo-numero">
-      <h2>🎯 Último número:</h2>
-      <p id="ultimo">--</p>
-    </div>
-
-    <div id="bingo-grid" class="grid"></div>
-
-    <div class="sorteados">
-      <h2>📋 Números Sorteados:</h2>
-      <p id="numeros-sorteados">Nenhum ainda</p>
-    </div>
-
-    <div id="cartelas" class="cartelas-container"></div>
+    <footer class="footer">
+      <small>Atalhos: Espaço = Sortear · U = Desfazer · R = Reset · F = Tela cheia</small>
+    </footer>
   </div>
+
+  <template id="confettiTpl">
+    <span class="confetti"></span>
+  </template>
 
   <script src="script.js"></script>
 </body>
